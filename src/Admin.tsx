@@ -23,6 +23,7 @@ interface Contact {
 interface Release {
   id: string;
   version: string;
+  fileUrl: string;
   notes: string;
   date: any;
 }
@@ -87,13 +88,13 @@ export default function AdminPage() {
   const handleCreateRelease = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const { version, notes } = Object.fromEntries(formData.entries());
+    const { version, notes, fileUrl } = Object.fromEntries(formData.entries());
     
     try {
       await addDoc(collection(db, 'releases'), {
         version,
         notes,
-        fileUrl: '/downloads/clarte.exe',
+        fileUrl: fileUrl || '/downloads/clarte.exe',
         date: serverTimestamp()
       });
       (e.target as HTMLFormElement).reset();
@@ -201,6 +202,17 @@ export default function AdminPage() {
                     name="version"
                     type="text" 
                     placeholder="1.0.1"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-indigo-500 outline-none"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-white/40">Download URL</label>
+                  <input 
+                    required
+                    name="fileUrl"
+                    type="text" 
+                    placeholder="https://github.com/.../clarte.exe"
+                    defaultValue="/downloads/clarte.exe"
                     className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-indigo-500 outline-none"
                   />
                 </div>

@@ -106,7 +106,7 @@ service cloud.firestore {
     }
 
     match /releases/{releaseId} {
-      allow read: if isAuthenticated();
+      allow read: if true;
       allow create: if isAdmin() && isValidRelease(request.resource.data);
       allow update: if isAdmin() && isValidRelease(request.resource.data);
       allow delete: if isAdmin();
