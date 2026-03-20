@@ -1,0 +1,55 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "A user of the application",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email", "description": "The user's email address" },
+        "name": { "type": "string", "description": "The user's display name" },
+        "provider": { "type": "string", "description": "The authentication provider (e.g., google)" },
+        "role": { "type": "string", "enum": ["admin", "user"], "description": "The user's role" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the user was created" }
+      },
+      "required": ["email", "name", "role"]
+    },
+    "Release": {
+      "title": "Release",
+      "description": "A software release of Clarte IDE",
+      "type": "object",
+      "properties": {
+        "version": { "type": "string", "description": "The version number" },
+        "fileUrl": { "type": "string", "description": "The download URL for the release" },
+        "notes": { "type": "string", "description": "Release notes" },
+        "date": { "type": "string", "format": "date-time", "description": "The release date" }
+      },
+      "required": ["version", "fileUrl", "notes", "date"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "A contact message from a user",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "The sender's name" },
+        "email": { "type": "string", "format": "email", "description": "The sender's email" },
+        "message": { "type": "string", "description": "The message content" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the message was sent" }
+      },
+      "required": ["name", "email", "message", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile documents"
+    },
+    "/releases/{releaseId}": {
+      "schema": "Release",
+      "description": "Software release documents"
+    },
+    "/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Contact message documents"
+    }
+  }
+}
