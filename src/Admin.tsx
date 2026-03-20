@@ -212,7 +212,7 @@ export default function AdminPage() {
                     name="fileUrl"
                     type="text" 
                     placeholder="https://github.com/.../clarte.exe"
-                    defaultValue="/downloads/clarte.exe"
+                    defaultValue="https://github.com/zaydmulani09/Clarte/releases/download/v1.0.0/clarte_gui.exe"
                     className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-indigo-500 outline-none"
                   />
                 </div>

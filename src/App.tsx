@@ -226,14 +226,14 @@ export default function App() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button 
                 onClick={() => {
-                  const url = releases[0]?.fileUrl || '/downloads/clarte.exe';
+                  const url = releases[0]?.fileUrl || 'https://github.com/zaydmulani09/Clarte/releases/download/v1.0.0/clarte_gui.exe';
                   window.location.href = url;
                 }}
                 className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-indigo-600/80 backdrop-blur-md border border-indigo-500/30 text-white font-bold text-lg hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-500/20 flex items-center justify-center gap-2 group"
               >
                 <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
                 Download Clarte
-              </a>
+              </button>
             </div>
           </motion.div>
         </motion.div>
@@ -339,7 +339,7 @@ export default function App() {
             <div className="flex flex-col items-center gap-6">
               <button 
                 onClick={() => {
-                  const url = releases[0]?.fileUrl || '/downloads/clarte.exe';
+                  const url = releases[0]?.fileUrl || 'https://github.com/zaydmulani09/Clarte/releases/download/v1.0.0/clarte_gui.exe';
                   window.location.href = url;
                 }}
                 className="px-12 py-5 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 text-white font-bold text-xl hover:bg-white/20 hover:scale-105 transition-all active:scale-95 flex items-center gap-3 shadow-2xl shadow-white/5"
